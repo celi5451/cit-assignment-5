@@ -10,7 +10,7 @@ function ImagesFor({ id }) { // fetch and render all profile images for the pers
 
   useEffect(() => {
     fetch(`https://api.themoviedb.org/3/person/${id}/images?api_key=${API_KEY}`)
-      .then(res => res.json())
+      .then(res => res.json()) // parse the response as JSON
       .then(data => setFilePaths(data.profiles.map(p => p.file_path))); // extract the file_paths
   }, [id]); // re-fetch if the id changes
 
@@ -25,9 +25,9 @@ function Person({ person }) { // define a Person component that takes a person p
   return (
     <div className="person">
         <ImagesFor id={person.id} />
-        <div classname="person-info">
+        <div className="person-info">
 
-      <h1 style={{ fontWeight: 'bold' }}>{person.name}</h1>
+      <h1 style={{ fontWeight: 'bold' }}>{person.name}</h1> 
       <p style={{ fontStyle: 'italic' }}>Department: {person.known_for_department}</p>
       
       <div className="known-for">
